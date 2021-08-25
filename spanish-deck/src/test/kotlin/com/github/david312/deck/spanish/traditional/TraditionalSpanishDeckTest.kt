@@ -1,5 +1,8 @@
-package com.github.david312.deck.spanish
+package com.github.david312.deck.spanish.traditional
 
+import com.github.david312.deck.spanish.Figura
+import com.github.david312.deck.spanish.Palo
+import com.github.david312.deck.spanish.SpanishCard
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test

@@ -1,5 +1,8 @@
-package com.github.david312.deck.spanish
+package com.github.david312.deck.spanish.extended
 
+import com.github.david312.deck.spanish.Figura
+import com.github.david312.deck.spanish.Palo
+import com.github.david312.deck.spanish.SpanishCard
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest

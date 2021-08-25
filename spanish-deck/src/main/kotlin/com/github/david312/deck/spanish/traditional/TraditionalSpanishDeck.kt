@@ -1,6 +1,11 @@
-package com.github.david312.deck.spanish
+package com.github.david312.deck.spanish.traditional
 
-class TraditionalSpanishDeck internal constructor(cards: List<SpanishCard>): SpanishDeck(cards) {
+import com.github.david312.deck.spanish.Figura
+import com.github.david312.deck.spanish.Palo
+import com.github.david312.deck.spanish.SpanishCard
+import com.github.david312.deck.spanish.SpanishDeck
+
+open class TraditionalSpanishDeck(cards: List<SpanishCard>): SpanishDeck(cards) {
 
     companion object {
         private val FORBIDDEN_FIGURAS = listOf(Figura.OCHO, Figura.NUEVE)
@@ -10,6 +15,11 @@ class TraditionalSpanishDeck internal constructor(cards: List<SpanishCard>): Spa
     init {
         assertNoInvalidCardsAreInserted(cards)
     }
+
+    /**
+     * Empty deck constructor.
+     */
+    constructor() : this(listOf())
 
     private fun assertNoInvalidCardsAreInserted(cards: List<SpanishCard>) {
         cards.find { FORBIDDEN_FIGURAS.contains(it.figura) }
