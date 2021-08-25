@@ -1,6 +1,6 @@
 package com.github.david312.deck
 
-interface Deck<C: Card> {
+interface Deck<C: Card>: Iterable<C> {
     /**
      * The size of the deck.
      */
@@ -51,4 +51,30 @@ interface Deck<C: Card> {
      * Shuffle the deck.
      */
     fun shuffle()
+
+    /**
+     * Peek the first card of the deck, if any.
+     */
+    fun peek(): C?
+
+    /**
+     * Peek at most the first [amount] cards of the deck.
+     * @throws IllegalArgumentException if [amount] is negative.
+     */
+    fun peek(amount: Int): List<C>
+
+    /**
+     * Peek the last card of the deck, if any.
+     */
+    fun peekBottom(): C?
+
+    /**
+     * Peek at most the last [amount] cards of the deck.
+     *
+     * The cards peeked will follow the order as if they were drawn from the bottom
+     * one by one.
+     *
+     * @throws IllegalArgumentException if [amount] is negative.
+     */
+    fun peekBottom(amount: Int): List<C>
 }

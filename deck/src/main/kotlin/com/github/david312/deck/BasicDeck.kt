@@ -1,10 +1,16 @@
 package com.github.david312.deck
 
+import java.lang.IllegalArgumentException
+
 open class BasicDeck<C: Card>(cards: List<C>): Deck<C> {
 
     protected var cards = cards.toMutableList()
 
     override val size: Int get() = cards.size
+
+    override fun iterator(): Iterator<C> {
+        return cards.iterator()
+    }
 
     override fun draw(): C = draw(1).first()
 
@@ -38,5 +44,31 @@ open class BasicDeck<C: Card>(cards: List<C>): Deck<C> {
 
     override fun shuffle() {
         cards = cards.shuffled().toMutableList()
+    }
+
+    override fun peek(): C? {
+        return cards.firstOrNull()
+    }
+
+    override fun peek(amount: Int): List<C> {
+        assertPositiveAmount(amount)
+        val lastIndex = if (amount <= size) amount else size
+        return cards.subList(0, lastIndex)
+    }
+
+    private fun assertPositiveAmount(amount: Int) {
+        if (amount < 0) {
+            throw IllegalArgumentException("Amount cannot be negative")
+        }
+    }
+
+    override fun peekBottom(): C? {
+        return cards.lastOrNull()
+    }
+
+    override fun peekBottom(amount: Int): List<C> {
+        assertPositiveAmount(amount)
+        val lastAmount = if (amount <= size) amount else size
+        return cards.takeLast(lastAmount).reversed()
     }
 }
