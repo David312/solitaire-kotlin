@@ -13,6 +13,7 @@
   <modules>
     <module>deck</module>
     <module>spanish-deck</module>
+    <module>game-logic</module>
   </modules>
 
   <properties>
