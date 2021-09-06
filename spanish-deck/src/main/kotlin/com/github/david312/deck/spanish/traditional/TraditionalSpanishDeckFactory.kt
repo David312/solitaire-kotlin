@@ -14,4 +14,8 @@ class TraditionalSpanishDeckFactory: SpanishDeckFactory<TraditionalSpanishDeck>(
     private fun buildTraditionalCardsOfPalo(palo: Palo): List<SpanishCard> {
         return TraditionalSpanishDeck.ALLOWED_FIGURAS.map { SpanishCard(palo, it) }
     }
+
+    override fun newEmptyDeck(): TraditionalSpanishDeck {
+        return TraditionalSpanishDeck()
+    }
 }

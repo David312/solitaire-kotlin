@@ -21,4 +21,10 @@ abstract class SpanishDeckFactoryTest {
             assertTrue(deck.hasAllCardsOfPalo(palo))
         }
     }
+
+    @Test
+    fun `When creating an empty deck, Should return a deck with no cards`() {
+        val deck = getInstance().newEmptyDeck()
+        assertTrue(deck.isEmpty())
+    }
 }

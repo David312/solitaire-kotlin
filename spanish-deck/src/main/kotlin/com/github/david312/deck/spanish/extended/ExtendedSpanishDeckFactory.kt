@@ -15,4 +15,8 @@ class ExtendedSpanishDeckFactory: SpanishDeckFactory<ExtendedSpanishDeck>() {
     private fun buildExtendedCardsOfPalo(palo: Palo): List<SpanishCard> {
         return Figura.values().map { SpanishCard(palo, it) }
     }
+
+    override fun newEmptyDeck(): ExtendedSpanishDeck {
+        return ExtendedSpanishDeck()
+    }
 }
