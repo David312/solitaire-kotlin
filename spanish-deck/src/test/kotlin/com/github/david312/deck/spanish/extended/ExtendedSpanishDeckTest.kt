@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.EnumSource
+import kotlin.test.assertEquals
 
 class ExtendedSpanishDeckTest {
 
@@ -33,4 +34,12 @@ class ExtendedSpanishDeckTest {
         Assertions.assertFalse(deck.hasAllCardsOfPalo(Palo.COPAS))
     }
 
+    @Test
+    fun `Given deck, When copy, Should return a copy of itself`() {
+        var copy = deck.copy()
+        assertEquals(deck.size, copy.size)
+        for (card in deck) {
+            assertEquals(card, copy.draw())
+        }
+    }
 }

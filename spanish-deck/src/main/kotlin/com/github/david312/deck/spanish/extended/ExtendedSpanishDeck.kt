@@ -22,4 +22,8 @@ open class ExtendedSpanishDeck(cards: List<SpanishCard>): SpanishDeck(cards) {
             .toList()
             .containsAll(ALLOWED_FIGURAS)
     }
+
+    override fun copy(): SpanishDeck {
+        return ExtendedSpanishDeck(cards)
+    }
 }

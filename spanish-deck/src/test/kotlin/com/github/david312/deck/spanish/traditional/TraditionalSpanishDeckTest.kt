@@ -74,4 +74,13 @@ class TraditionalSpanishDeckTest {
         deck.addBottom(card)
         assertEquals(card, deck.drawBottom())
     }
+
+    @Test
+    fun `Given deck, When copy, Should return a copy of itself`() {
+        var copy = deck.copy()
+        assertEquals(deck.size, copy.size)
+        for (card in deck) {
+            assertEquals(card, copy.draw())
+        }
+    }
 }

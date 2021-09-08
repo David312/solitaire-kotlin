@@ -56,4 +56,8 @@ open class TraditionalSpanishDeck(cards: List<SpanishCard>): SpanishDeck(cards) 
         assertCardIsAllowed(card)
         super.addBottom(card)
     }
+
+    override fun copy(): SpanishDeck {
+        return TraditionalSpanishDeck(this.cards)
+    }
 }
